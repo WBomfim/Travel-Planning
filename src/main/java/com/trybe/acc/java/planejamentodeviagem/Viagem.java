@@ -24,8 +24,9 @@ public class Viagem {
    * 
    */
   public String retonarDesembarqueHorarioLocalDestino() {
-    Tempo tempoViagem =
-        new Tempo(this.embarque, this.origem, this.destino, this.retornarDuracaoVoo());
+    Tempo tempoViagem = new Tempo(
+      this.embarque, this.origem, this.destino, this.retornarDuracaoVoo()
+    );
     return tempoViagem.retonarDesembarqueHorarioLocalDestino();
   }
 
