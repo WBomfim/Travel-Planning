@@ -1,5 +1,9 @@
 package com.trybe.acc.java.planejamentodeviagem;
 
+/**
+ * Class Viagem.
+ *
+ */
 public class Viagem {
   private String embarque;
   private String origem;
@@ -25,7 +29,7 @@ public class Viagem {
    */
   public String retonarDesembarqueHorarioLocalDestino() {
     Tempo tempoViagem = new Tempo(
-      this.embarque, this.origem, this.destino, this.retornarDuracaoVoo()
+        this.embarque, this.origem, this.destino, this.retornarDuracaoVoo()
     );
     return tempoViagem.retonarDesembarqueHorarioLocalDestino();
   }
@@ -40,8 +44,26 @@ public class Viagem {
    * 
    */
   public String retornarInformacaoViagem() {
-    Tempo tempoViagem =
-        new Tempo(this.embarque, this.origem, this.destino, this.retornarDuracaoVoo());
+    Tempo tempoViagem = new Tempo(
+        this.embarque, this.origem, this.destino, this.retornarDuracaoVoo()
+    );
+    
+    StringBuilder informacaoViagem = new StringBuilder();
 
+    informacaoViagem.append(this.voo.retornarInformacaoVoo(
+        this.embarque,
+        this.origem,
+        tempoViagem.retonarDesembarqueHorarioLocalDestino(),
+        this.destino
+    ));
+    informacaoViagem.append("\n" + "\n");
+    informacaoViagem.append("Atenção:\n");
+    informacaoViagem.append("O desembarque em " + this.destino + " será: ");
+    informacaoViagem.append(tempoViagem.retonarDesembarqueHorarioLocalDestino());
+    informacaoViagem.append(" no horário de " + this.destino + " e ");
+    informacaoViagem.append(tempoViagem.retonarDesembarqueHorarioLocalOrigem());
+    informacaoViagem.append(" no horário de " + this.origem + ".");
+
+    return informacaoViagem.toString();
   }
 }
