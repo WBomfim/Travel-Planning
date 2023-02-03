@@ -36,4 +36,5 @@ public class Voo {
 
     return informacaoVoo.toString();
   }
+
 }

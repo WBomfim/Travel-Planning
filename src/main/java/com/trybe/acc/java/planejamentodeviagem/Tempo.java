@@ -23,8 +23,8 @@ public class Tempo {
    */
   public Tempo(String embarque, String origem, String destino, int duracao) {
     this.embarque = LocalDateTime.parse(embarque, DateTimeFormatter.ofPattern(formato));
-    this.origem = origem;
-    this.destino = destino;
+    this.origem = origem.substring(0, 1).toUpperCase() + origem.substring(1).toLowerCase();
+    this.destino = destino.substring(0, 1).toUpperCase() + destino.substring(1).toLowerCase();
     this.duracao = duracao;
   }
 
@@ -84,4 +84,5 @@ public class Tempo {
 
     return origemHorarioLocal.plusHours(this.duracao).format(DateTimeFormatter.ofPattern(formato));
   }
+
 }

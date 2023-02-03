@@ -17,8 +17,8 @@ public class Viagem {
    */
   public Viagem(String embarque, String origem, String destino, double distanciaKm) {
     this.embarque = embarque;
-    this.origem = origem;
-    this.destino = destino;
+    this.origem = origem.substring(0, 1).toUpperCase() + origem.substring(1).toLowerCase();
+    this.destino = destino.substring(0, 1).toUpperCase() + destino.substring(1).toLowerCase();
     this.distanciaKm = distanciaKm;
     this.voo = new Voo();
   }
@@ -66,4 +66,5 @@ public class Viagem {
 
     return informacaoViagem.toString();
   }
+
 }
